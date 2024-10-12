@@ -755,3 +755,378 @@ s2015320@bioinfmsc5:~/Exercises/Lecture04$ cat my_cool_script.sh
 # This script is not going to work
 # This script is not good
 s2015320@bioinfmsc5:~/Exercises/Lecture04$ #Now the checking out part
+
+
+
+# Part 3 - Final part of the lecture - before uploading everything to GitHub
+
+Author: vesoelisabeth <vesoelisabeth@gmail.com>
+s2015320@bioinfmsc5:~/Exercises$ cd Lecture04
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ git log > all_the_things_I_did
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ head all_the_things_I_did
+commit 3f651ed92e20164c295951f5f490b6276ddb15b0
+Author: vesoelisabeth <vesoelisabeth@gmail.com>
+Date:   Fri Oct 11 16:55:11 2024 +0100
+
+    There were conflicts with someotherfile.sh, kept all changes
+
+commit f964b0892a784b0ffc464bdadacc66282bf5f558
+Author: vesoelisabeth <vesoelisabeth@gmail.com>
+Date:   Tue Oct 8 12:54:06 2024 +0100
+
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ sed -i 's/oldtext/newtext/g' myfile
+sed: can't read myfile: No such file or directory
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ sed -i 's/KeenPythonCoder2024/Bxxxxxx-2024/g' all_the_things_I_did
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ head -n3 all_the_things_I_did
+commit 3f651ed92e20164c295951f5f490b6276ddb15b0
+Author: vesoelisabeth <vesoelisabeth@gmail.com>
+Date:   Fri Oct 11 16:55:11 2024 +0100
+s2015320@bioinfmsc5:~/Exercises/Lecture04$  sed -i 's/vesoelisabeth/Bxxxxxx-2024/g' all_the_things_I_did
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ head -n3 all_the_things_I_did
+commit 3f651ed92e20164c295951f5f490b6276ddb15b0
+Author: Bxxxxxx-2024 <Bxxxxxx-2024@gmail.com>
+Date:   Fri Oct 11 16:55:11 2024 +0100
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ sed -i 'i 's/<vesoelisabeth@gmail.com>/<email_not_provided>/g'all_things_I_did
+> 
+> 
+> 
+> 
+> 
+> end
+> ^C
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ sed -i 's/<vesoelisabeth@gmail.com>/<email_not_provided>/g' all_the_things_I_did
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ head _n3 all_the_things_I_did
+head: cannot open '_n3' for reading: No such file or directory
+==> all_the_things_I_did <==
+commit 3f651ed92e20164c295951f5f490b6276ddb15b0
+Author: Bxxxxxx-2024 <Bxxxxxx-2024@gmail.com>
+Date:   Fri Oct 11 16:55:11 2024 +0100
+
+    There were conflicts with someotherfile.sh, kept all changes
+
+commit f964b0892a784b0ffc464bdadacc66282bf5f558
+Author: Bxxxxxx-2024 <Bxxxxxx-2024@gmail.com>
+Date:   Tue Oct 8 12:54:06 2024 +0100
+
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ sed -i 's/<Bxxxxxx-2024@gmail.com>/<email_not_provided>/g' all_the_things_I_did
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ head _n3 all_the_things_I_did
+head: cannot open '_n3' for reading: No such file or directory
+==> all_the_things_I_did <==
+commit 3f651ed92e20164c295951f5f490b6276ddb15b0
+Author: Bxxxxxx-2024 <email_not_provided>
+Date:   Fri Oct 11 16:55:11 2024 +0100
+
+    There were conflicts with someotherfile.sh, kept all changes
+
+commit f964b0892a784b0ffc464bdadacc66282bf5f558
+Author: Bxxxxxx-2024 <email_not_provided>
+Date:   Tue Oct 8 12:54:06 2024 +0100
+
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ git log | head -n8
+commit 3f651ed92e20164c295951f5f490b6276ddb15b0
+Author: vesoelisabeth <vesoelisabeth@gmail.com>
+Date:   Fri Oct 11 16:55:11 2024 +0100
+
+    There were conflicts with someotherfile.sh, kept all changes
+
+commit f964b0892a784b0ffc464bdadacc66282bf5f558
+Author: vesoelisabeth <vesoelisabeth@gmail.com>
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ git log | awk '{ \
+> if($1==Author:") \
+> { \
+> ($2=="vesoelisabeth";
+> }
+> git log | awk '{ \
+if($1==Author:") \
+{ \
+($2=="vesoelisabeth";
+$3=="<email_not_provided>";
+-bash: syntax error near unexpected token `('
+> ^C
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ git log | awk '{ \
+> > if($1==Author:") \
+> > { \
+> > ($2=="vesoelisabeth";
+> > }
+> > git log | awk '{ \
+> if($1==Author:") \
+-bash: syntax error near unexpected token `('
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ { \
+> ($2=="vesoelisabeth";
+> sed -i 's/<Bxxxxxx-2024@gmail.com>/<email_not_provided>/g' all_the_things_I_did^C
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ nano random.sh
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ git log | awk '{ \
+> if($1=="Author:") \
+> { \
+> $2=="vesoelisabeth";
+> $3=="<email_not_provided>";
+> }
+> print $0;
+> }' | head -n3
+commit 3f651ed92e20164c295951f5f490b6276ddb15b0
+Author: vesoelisabeth <vesoelisabeth@gmail.com>
+Date:   Fri Oct 11 16:55:11 2024 +0100
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ nano random.sh
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ git log | awk '{ \
+> if($1=="Author:") \
+> { 
+> $2="vesoelisabeth";
+> $3="<email_not_provided>";
+> }
+> print $0;
+> }' | head -n3
+commit 3f651ed92e20164c295951f5f490b6276ddb15b0
+Author: vesoelisabeth <email_not_provided>
+Date:   Fri Oct 11 16:55:11 2024 +0100
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ nano random.sh
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ git log | awk '{
+> if($1=="Author:") {$2="vesoelisabeth"; $3="<email_not_provided>"; }
+> print $0; }' > all_the_things_I_did
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ cat all_the_things_I_did
+commit 3f651ed92e20164c295951f5f490b6276ddb15b0
+Author: vesoelisabeth <email_not_provided>
+Date:   Fri Oct 11 16:55:11 2024 +0100
+
+    There were conflicts with someotherfile.sh, kept all changes
+
+commit f964b0892a784b0ffc464bdadacc66282bf5f558
+Author: vesoelisabeth <email_not_provided>
+Date:   Tue Oct 8 12:54:06 2024 +0100
+
+    lecture07.sh
+
+commit a46fdc5ae08963ba35e2793a411ee3e6d4f84b96
+Author: vesoelisabeth <email_not_provided>
+Date:   Tue Oct 8 12:44:51 2024 +0100
+
+    edirect seqs related stuff added
+
+commit 434f4d947aa0a935e3be06e979cf88a93c1e182a
+Author: vesoelisabeth <email_not_provided>
+Date:   Sat Oct 5 17:11:34 2024 +0100
+
+    Lecture04 code for Git
+
+commit f2a6e39e7839e243110617b1c7366175b8e2b3fc
+Author: vesoelisabeth <email_not_provided>
+Date:   Sat Oct 5 16:50:28 2024 +0100
+
+    Updated contents of tar, coolscript
+
+commit 0fd74a3d45402888b1eb4efc9579253138496657
+Author: vesoelisabeth <email_not_provided>
+Date:   Sat Oct 5 16:47:52 2024 +0100
+
+    I am not sure cool script is actually any good
+
+commit c74b12c713f5e23c1e96bee440daf3adf169876a
+Author: vesoelisabeth <email_not_provided>
+Date:   Sat Oct 5 16:38:42 2024 +0100
+
+    "Final changes made"
+
+commit 3a7fa98f0e3751672bed58246f0d10e248d5cca7
+Author: vesoelisabeth <email_not_provided>
+Date:   Sat Oct 5 16:37:17 2024 +0100
+
+    Added my_cool_script
+
+commit c624c002943e9b7034466578549ee612074483ca
+Author: vesoelisabeth <email_not_provided>
+Date:   Sat Oct 5 16:29:29 2024 +0100
+
+    Additinal motif files, and updated tar files from lecture04 part2
+
+commit 55919898901cee2804726e0734b144661b54146e
+Author: vesoelisabeth <email_not_provided>
+Date:   Sat Oct 5 15:55:30 2024 +0100
+
+    "Adding initial tar file"
+
+commit 981af60b9ea2e45c844331392af9a729b0a54a6f
+Author: vesoelisabeth <email_not_provided>
+Date:   Sat Oct 5 15:55:06 2024 +0100
+
+    CodeFiles all done and tar zipped part2
+
+commit b31f67a811f2b9bfddd7ab2c0c561cf407cd541c
+Author: vesoelisabeth <email_not_provided>
+Date:   Sat Oct 5 15:44:52 2024 +0100
+
+    Lecture04 update with bowtie2.log
+
+commit 7a46a5acfcbd6113f5e3ab7323411846dc1610e1
+Author: vesoelisabeth <email_not_provided>
+Date:   Sat Oct 5 15:43:12 2024 +0100
+
+    Additional code for Lecture03
+
+commit 997c1593fe9c19e708dd266548bd770593fff7f9
+Author: vesoelisabeth <email_not_provided> <s2015320@bioinfmsc5.ed.ac.uk>
+Date:   Fri Oct 4 12:00:52 2024 +0100
+
+    Committing Week3 Lecture content
+
+commit a54d3dee47711be66e86dbdfeac42b206287619e
+Author: vesoelisabeth <email_not_provided> <s2015320@bioinfmsc5.ed.ac.uk>
+Date:   Fri Sep 27 12:45:14 2024 +0100
+
+    Third version of the someotherfile.sh shell script
+
+commit 9cfd0c643c9b7e088a89666ea631ec64fbfcccc1
+Author: vesoelisabeth <email_not_provided> <s2015320@bioinfmsc5.ed.ac.uk>
+Date:   Fri Sep 27 12:43:25 2024 +0100
+
+    Updated version of tar
+
+commit 39f67dce0157ef61368161780358702d12631055
+Author: vesoelisabeth <email_not_provided> <s2015320@bioinfmsc5.ed.ac.uk>
+Date:   Fri Sep 27 12:40:35 2024 +0100
+
+    Added the someotherfile.sh shell script
+
+commit 7d41e8baf97a4b695a5ab65bc315766090973f47
+Author: vesoelisabeth <email_not_provided> <s2015320@bioinfmsc5.ed.ac.uk>
+Date:   Fri Sep 27 12:38:01 2024 +0100
+
+    Additional motif files, and updated tar file
+
+commit 140009f4483928ab75b4240bad7c275961a8ada9
+Author: vesoelisabeth <email_not_provided> <s2015320@bioinfmsc5.ed.ac.uk>
+Date:   Fri Sep 27 12:21:56 2024 +0100
+
+    ^G
+    First file added
+    
+    ^X
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ tar u
+tar: Options '-Aru' are incompatible with '-f -'
+Try 'tar --help' or 'tar --usage' for more information.
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ tar uvf CodeFiles.tar all_the_things_I_did
+all_the_things_I_did
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ git ls-tree --f
+error: ambiguous option: f (could be --full-name or --full-tree)
+usage: git ls-tree [<options>] <tree-ish> [<path>...]
+
+    -d                    only show trees
+    -r                    recurse into subtrees
+    -t                    show trees when recursing
+    -z                    terminate entries with NUL byte
+    -l, --long            include object size
+    --name-only           list only filenames
+    --name-status         list only filenames
+    --full-name           use full path names
+    --full-tree           list entire tree; not just current directory (implies --full-name)
+    --abbrev[=<n>]        use <n> digits to display SHA-1s
+
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ git ls-tree--full-tree -r --name-only HEAD
+git: 'ls-tree--full-tree' is not a git command. See 'git --help'.
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ git ls-tree --full-tree -r --name-only HEAD
+.gitignore
+Lecture03
+Lecture04/CodeFiles.tar
+Lecture04/lecture04.sh
+Lecture04/motif_file.txt
+Lecture04/motif_file2.txt
+Lecture04/my_cool_script.sh
+Lecture04/someotherfile.sh
+Lecture06/blastoutoutput2.out
+Lecture06/blastoutput1.out
+Lecture06/blastoutput2.out
+Lecture06/nem.fasta
+Lecture06/nem.pdb
+Lecture06/nem.phr
+Lecture06/nem.pin
+Lecture06/nem.pjs
+Lecture06/nem.pot
+Lecture06/nem.psq
+Lecture06/nem.ptf
+Lecture06/nem.pto
+Lecture06/testsequence.fasta
+Lecture07/Cosmoscarta.nuc.fa
+Lecture07/Cosmoscarta.nuc.gis
+Lecture07/lecture07.sh
+message_to_al
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ nano random.sh
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ tar tfv CodeFiles.tar | sort -k6,6
+-rw-r--r-- s2015320/g_s2015320 3380 2024-10-11 16:56 all_the_things_I_did
+-rw-r--r-- s2015320/g_s2015320 3435 2024-10-12 14:03 all_the_things_I_did
+-rw-r--r-- s2015320/g_s2015320 56 2024-10-05 16:25 motif_file2.txt
+-rw-r--r-- s2015320/g_s2015320 28 2024-10-05 16:17 motif_file.txt
+-rw-r--r-- s2015320/g_s2015320 68 2024-09-27 12:19 motif_file.txt
+-rw-r--r-- s2015320/g_s2015320 122 2024-10-05 16:48 my_cool_script.sh
+-rw-r--r-- s2015320/g_s2015320 34 2024-09-27 12:44 someotherfile.sh
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ 
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ mkdir outs
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ tar xvf CodeFiles.tar -C ./outs someotherfile.sh
+someotherfile.sh
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ ls -al outs
+total 4
+drwxr-xr-x 2 s2015320 g_s2015320  38 Oct 12 14:36 .
+drwxr-xr-x 3 s2015320 g_s2015320 238 Oct 12 14:36 ..
+-rw-r--r-- 1 s2015320 g_s2015320  34 Sep 27 12:44 someotherfile.sh
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ ls -al outs | grep sh
+-rw-r--r-- 1 s2015320 g_s2015320  34 Sep 27 12:44 someotherfile.sh
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ cat outs/someotherfile.sh
+Some random text
+More random text
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ cat someother.sh
+cat: someother.sh: No such file or directory
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ cat someotherfile.sh
+Some random text
+More random text
+This script has achieved total perfection now,
+so I am going to finish things off and call it done.
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ diff outs/someotherfile.sh someotherfile.sh
+2a3,4
+> This script has achieved total perfection now,
+> so I am going to finish things off and call it done.
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ ls -al outs | grep sh
+-rw-r--r-- 1 s2015320 g_s2015320  34 Sep 27 12:44 someotherfile.sh
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ tar xv
+tar: Refusing to read archive contents from terminal (missing -f option?)
+tar: Error is not recoverable: exiting now
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ w
+ 14:42:11 up 28 days, 14:52,  8 users,  load average: 0.00, 0.00, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+nnnadi   pts/1    10.65.192.45     07:12    6:24m 24:06  24:06  /localdisk/home/nnnadi/anaconda3/en
+s2066110 pts/3    plab-mlb2-040.pu 14:36    1:05   0.04s  0.01s nano mockfix.sh
+s2616010 pts/4    10.124.160.143   11:22   14:35   0.27s  0.27s -bash
+s2704130 pts/6    10.65.192.64     11:45   16.00s  0.36s  0.33s -bash
+s2704130 pts/7    10.65.192.64     11:48    1:23   0.58s  0.14s nano adripipeline.sh
+s2694547 pts/9    plab-mlb4-127.pu 12:55    9:05   0.08s  0.08s -bash
+s1897022 pts/10   10.126.123.197   13:02   14:27   0.05s  0.05s -bash
+s2015320 pts/12   10.126.92.161    13:08    0.00s  0.11s  0.01s w
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ tar xvwf CodeFiles.tar -C ./outs/
+extract ‘motif_file.txt’?
+extract ‘motif_file2.txt’? n
+extract ‘motif_file.txt’?^C
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ mkdir $HO
+mkdir: missing operand
+Try 'mkdir --help' for more information.
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ mkdir $HOME/PythonICA
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ cp all_the_things_I_did $HOME/PythonICA
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ cp all_the_things_I_did $HOME/PythonICA/
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ cd $HOME/PythonICA
+s2015320@bioinfmsc5:~/PythonICA$ ls
+all_the_things_I_did
+s2015320@bioinfmsc5:~/PythonICA$ cd Exercises/Lecture04
+-bash: cd: Exercises/Lecture04: No such file or directory
+s2015320@bioinfmsc5:~/PythonICA$ cd $HOME/Exercises/Lecture04
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ ls -al
+total 80
+drwxr-xr-x 3 s2015320 g_s2015320   238 Oct 12 14:36 .
+drwxr-xr-x 9 s2015320 g_s2015320   199 Oct 11 16:38 ..
+-rw-r--r-- 1 s2015320 g_s2015320  3435 Oct 12 14:03 all_the_things_I_did
+-rw-r--r-- 1 s2015320 g_s2015320 20480 Oct 12 14:04 CodeFiles.tar
+-rwxr-xr-x 1 s2015320 g_s2015320 33685 Oct 11 16:38 lecture04.sh
+-rw-r--r-- 1 s2015320 g_s2015320    56 Oct  5 16:25 motif_file2.txt
+-rw-r--r-- 1 s2015320 g_s2015320    28 Oct  5 16:17 motif_file.txt
+-rw-r--r-- 1 s2015320 g_s2015320   157 Oct 11 16:32 my_cool_script.sh
+drwxr-xr-x 2 s2015320 g_s2015320    38 Oct 12 14:36 outs
+-rw-r--r-- 1 s2015320 g_s2015320   238 Oct 12 14:03 random.sh
+-rw-r--r-- 1 s2015320 g_s2015320   134 Oct 11 16:49 someotherfile.sh
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ cp lecture04.sh $HOME/PythonICA/
+
+
+#Saving this and uploading first to git repository and then to GitHub :)
