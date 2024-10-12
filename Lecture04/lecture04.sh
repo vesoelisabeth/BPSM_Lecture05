@@ -1130,3 +1130,19 @@ s2015320@bioinfmsc5:~/Exercises/Lecture04$ cp lecture04.sh $HOME/PythonICA/
 
 
 #Saving this and uploading first to git repository and then to GitHub :)
+curl -u B270917-2024  https://api.github.com/user/repos -d '{"name":"ICA"}'
+Enter host password for user 'B270917-2024':
+git remote add origin3 https://github.com/B270917-2024/ICA.git
+s2015320@bioinfmsc5:~/Exercises/Lecture04$ git push -u origin3 master
+Username for 'https://github.com': B270917-2024
+Password for 'https://B270917-2024@github.com': 
+Enumerating objects: 86, done.
+Counting objects: 100% (86/86), done.
+Delta compression using up to 64 threads
+Compressing objects: 100% (80/80), done.
+Writing objects: 100% (86/86), 26.51 MiB | 6.84 MiB/s, done.
+Total 86 (delta 29), reused 0 (delta 0)
+remote: Resolving deltas: 100% (29/29), done.
+To https://github.com/B270917-2024/ICA.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin3'.
