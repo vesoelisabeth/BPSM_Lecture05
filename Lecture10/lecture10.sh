@@ -205,3 +205,62 @@ Traceback (most recent call last):
 TypeError: unsupported operand type(s) for +: 'int' and 'str'
 >>> str(4) + 'abc'
 '4abc'
+
+#part 2
+
+>>> protein = "vlspadktnv"
+>>> print(protein.replace("v", "y"))
+ylspadktny
+>>> protein.replace("vls", "ymt" )
+'ymtpadktnv'
+>>> changed_protein = protein.replace("vls", "ymt" )
+>>> print(changed_protein)
+ymtpadktnv
+>>> print(protein)
+vlspadktnv
+>>> protein[3:6]
+'pad'
+>>> protein[5:]
+'dktnv'
+>>> valine_count = protein.count('v')
+>>> lsp_count = protein.count('lsp')
+>>> tryptophan_count = protein.count('w')
+>>> print("valines: " + str(valine_count ))
+valines: 2
+>>> print("lsp: " + str(lsp_count ))
+lsp: 1
+>>> print("tryptophans: " + str(tryptophan_count ))
+tryptophans: 0
+>>> protein.count('p')
+1
+>>> print("The index of the first proline is " + str(protein.find('p' )))
+The index of the first proline is 3
+>>> print(protein.find('kt' ))
+6
+>>> #do not forget that in python counting starts from 0
+>>> print(protein.find('w' ))
+-1
+>>> #i cannot find anything - default will show -1
+>>> protein.find(residue)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'residue' is not defined
+>>> residue = "s"
+>>> protein.find(residue)
+2
+>>> residue = "v"
+>>> protein.find(residue)
+0
+>>> print("The amino acid", residue, "is at Python position", protein.find(residue), "in the short protein", protein)
+The amino acid v is at Python position 0 in the short protein vlspadktnv
+>>> protein.count(residue)
+2
+>>> # the basic syntax is
+KeyboardInterrupt
+>>> # the basic syntax here is find(str, beg=0, end=len(string))
+>>> protein.find(residue,0,)
+0
+>>> protein.find(residue,1,)
+9
+>>> #here you change the "search region" of the string: there was more than one "find"
+
