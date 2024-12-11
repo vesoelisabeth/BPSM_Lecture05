@@ -3,6 +3,42 @@
 
 #Notes for Lecture14
 
+accessions = ['ab56', 'bh84', 'hv76', 'ay93', 'ap97', 'bd72']
+
+#complex for loop with multiple if statements within it
+
+>>> for acc in accessions :
+...     if acc.startswith('a') and acc.endswith('6') :
+...             print("Both conditions 1 and 2 are True for " + acc)
+...     if acc.startswith('a') or acc.endswith('6') :
+...             print("At least one of conditions 1 and 2 is True for " + acc)
+...     if (acc.startswith('b') or acc.startswith('h')) and acc.endswith('4') :
+...             print("Complex condition is True for " + acc)
+... 
+Both conditions 1 and 2 are True for ab56
+At least one of conditions 1 and 2 is True for ab56
+Complex condition is True for bh84
+At least one of conditions 1 and 2 is True for hv76
+At least one of conditions 1 and 2 is True for ay93
+At least one of conditions 1 and 2 is True for ap97
+
+#formatting of the code - splitting along the lines
+
+>>> for acc in accessions :
+...     if (
+...             ( acc.startswith('b')
+...             or acc.startswith('h'))
+...             and acc.endswith('4')
+...                     ) :
+...             print("complex condition is True for " + acc)
+... 
+complex condition is True for bh84
+
+
+###########
+
+#exercises
+
 flydata = open("data.csv")
 
 for geneline in flydata :
